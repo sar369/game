@@ -10,7 +10,13 @@
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background: radial-gradient(circle at top, #0f172a, #1e293b, #000);
+      background: linear-gradient(to bottom right, #0f172a, #1e293b, #111827);
+      background-attachment: fixed;
+    }
+    @media (max-width: 640px) {
+      body {
+        background: linear-gradient(to bottom, #1a1a2e, #16213e, #0f3460);
+      }
     }
     .glow-text {
       text-shadow: 0 0 10px rgba(99, 102, 241, 0.8);
@@ -29,15 +35,16 @@
       box-shadow: 0 0 20px rgba(99, 102, 241, 0.8);
     }
     .card {
-      background: rgba(30, 41, 59, 0.9);
+      background: rgba(30, 41, 59, 0.95);
       backdrop-filter: blur(8px);
-      border: 1px solid rgba(99, 102, 241, 0.2);
+      border: 1px solid rgba(99, 102, 241, 0.3);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       padding: 1.5rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      height: 100%;
+      height: 180px;
+      width: 100%;
     }
     .card:hover {
       transform: translateY(-5px);
@@ -92,9 +99,13 @@
         font-size: 1rem;
         padding: 0.75rem;
       }
-      /* Force equal button/card size */
+      /* Keep blocks equal and neatly aligned */
       .card {
-        height: 140px;
+        height: 160px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
       }
     }
   </style>
@@ -123,19 +134,19 @@
     </div>
     <h2 class="text-2xl sm:text-3xl font-bold text-center glow-text mb-8">Team Dominators Guild Hub</h2>
     <div class="grid grid-cols-2 gap-4 sm:gap-6 max-w-3xl mx-auto">
-      <div class="card rounded-xl text-center">
+      <div class="card rounded-xl">
         <h3 class="text-lg font-semibold mb-3">Guild Join Request</h3>
         <button class="neon-btn">Join</button>
       </div>
-      <div class="card rounded-xl text-center">
+      <div class="card rounded-xl">
         <h3 class="text-lg font-semibold mb-3">Guild Members</h3>
         <button class="neon-btn">View</button>
       </div>
-      <div class="card rounded-xl text-center">
+      <div class="card rounded-xl">
         <h3 class="text-lg font-semibold mb-3">Guild Rules</h3>
         <button class="neon-btn">Check</button>
       </div>
-      <div class="card rounded-xl text-center">
+      <div class="card rounded-xl">
         <h3 class="text-lg font-semibold mb-3">Join Tournament</h3>
         <button class="neon-btn">Participate</button>
       </div>
