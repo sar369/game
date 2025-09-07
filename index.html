@@ -5,139 +5,257 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Team Dominators</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
   <style>
     body {
-      font-family: 'Inter', sans-serif;
-      background: radial-gradient(circle at top, #0f172a, #1e293b, #000);
+      font-family: "Inter", sans-serif;
     }
-    .glow-text {
-      text-shadow: 0 0 10px rgba(99, 102, 241, 0.8);
+    .hero-bg {
+      background: radial-gradient(
+        circle at center,
+        #0f172a 0%,
+        #1e293b 50%,
+        #334155 100%
+      );
     }
-    .neon-btn {
-      background: transparent;
-      border: 2px solid #6366f1;
-      color: #6366f1;
-      transition: all 0.3s ease;
-      border-radius: 0.75rem;
-      width: 100%;
+    .nav-bg {
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(10px);
     }
-    .neon-btn:hover {
-      background: #6366f1;
-      color: #fff;
-      box-shadow: 0 0 20px rgba(99, 102, 241, 0.8);
-    }
-    .card {
-      background: rgba(30, 41, 59, 0.9);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(99, 102, 241, 0.2);
+    .option-card {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      padding: 1.5rem;
     }
-    .card:hover {
+    .option-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     }
-    .logo {
-      max-width: 100px;
-      margin: 0 auto 1.5rem;
-    }
-    .header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      padding: 1rem;
-      background: rgba(15, 23, 42, 0.8);
-      backdrop-filter: blur(8px);
-      z-index: 20;
-    }
-    .header a {
-      color: white;
-      font-size: 1.25rem;
-      font-weight: 700;
-      text-decoration: none;
+    .social-link {
       transition: opacity 0.3s ease;
     }
-    .header a:hover {
+    .social-link:hover {
+      opacity: 0.7;
+    }
+    .glow {
+      box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+    }
+    /* Increase button size and remove background colors */
+    .option-card button {
+      font-size: 1.25rem; /* larger font */
+      padding: 1rem 0; /* taller buttons */
+      background-color: transparent !important;
+      color: white !important;
+      border: 2px solid white;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .option-card button:hover {
+      background-color: white !important;
+      color: #1e293b !important;
+    }
+    /* Decrease social media icon size */
+    .social-link img {
+      width: 32px !important;
+      height: 32px !important;
+    }
+    /* Style the logo link */
+    .logo-link {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: white;
+    }
+    .logo-link:hover {
       opacity: 0.8;
-    }
-    .social-buttons a {
-      font-size: 0.9rem;
-      padding: 0.5rem 0.75rem;
-    }
-    /* Mobile optimizations */
-    @media (max-width: 640px) {
-      h1, h2 {
-        font-size: 1.5rem;
-      }
-      .neon-btn {
-        font-size: 1rem;
-        padding: 0.75rem;
-      }
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col items-center justify-center text-white">
-  <!-- Header with clickable title -->
-  <div class="header">
-    <a href="#" onclick="goHome()">Team Dominators</a>
-  </div>
+<body class="bg-slate-900 text-white min-h-screen flex flex-col">
+  <!-- Navigation Bar for Mobile -->
+  <nav class="nav-bg p-4 fixed top-0 w-full z-10">
+    <div class="flex justify-start items-center">
+      <a href="#" id="logoLink" class="logo-link">
+        <img
+          src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d2e1b9e0-9737-4b36-a953-15cf4b7a531e.png"
+          alt="Team Dominators logo featuring a glowing shield with swords and a crown, symbolizing victory and leadership in gaming"
+          class="w-8 h-8 mr-2"
+        />
+        <h1 class="text-lg font-bold">Team Dominators</h1>
+      </a>
+    </div>
+  </nav>
 
   <!-- Welcome Section -->
-  <section id="welcome" class="w-full max-w-md text-center px-4 mt-16">
-    <img src="https://depressed-beige-hfvwy3rhjv.edgeone.app/Picsart_25-06-14_19-14-45-948(1).jpg" alt="Team Dominators Logo" class="logo rounded-full shadow-lg" />
-    <h1 class="text-3xl sm:text-4xl font-bold glow-text mb-6">Welcome to Team Dominators</h1>
-    <p class="opacity-80 mb-8 text-sm sm:text-base">Join the elite gaming guild and dominate the leaderboard</p>
-    <button onclick="enterMain()" class="neon-btn px-8 py-3 text-lg">Enter</button>
+  <section
+    id="welcome"
+    class="flex-grow flex items-center justify-center px-4 pt-20 pb-8"
+  >
+    <div class="hero-bg w-full max-w-sm p-6 rounded-lg text-center">
+      <div class="mb-4">
+        <img
+          src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e10321a5-2870-420a-a9fa-134eba8f1a4e.png"
+          alt="Welcome banner featuring a futuristic gaming scene with swords, shields, and dominator-themed elements"
+          class="mx-auto"
+        />
+      </div>
+      <h2 class="text-2xl font-bold mb-4">Welcome to Team Dominators</h2>
+      <p class="text-sm mb-6 opacity-80">
+        Join the elite gaming guild and dominate the leaderboard
+      </p>
+      <button
+        id="heroEnterBtn"
+        class="w-full bg-indigo-600 text-white rounded-lg font-bold glow"
+      >
+        Enter
+      </button>
+    </div>
   </section>
 
-  <!-- Main Dashboard Section -->
-  <section id="dashboard" class="hidden w-full px-4 py-10 mt-16">
-    <div class="text-center mb-6">
-      <img src="https://depressed-beige-hfvwy3rhjv.edgeone.app/Picsart_25-06-14_19-14-45-948(1).jpg" alt="Team Dominators Logo" class="logo rounded-full shadow-lg" />
+  <!-- Main Section (Hidden Initially) -->
+  <section id="main" class="px-4 py-8 hidden">
+    <div class="text-center mb-8">
+      <h1 class="text-3xl font-extrabold mb-4 text-indigo-500">
+        Team Dominators Guild Hub
+      </h1>
+      <h2 class="text-2xl font-bold mb-4">Top Team Dominators</h2>
+      <p class="text-sm opacity-80">
+        Explore our guild and unleash your gaming potential
+      </p>
     </div>
-    <h2 class="text-2xl sm:text-3xl font-bold text-center glow-text mb-8">Team Dominators Guild Hub</h2>
-    <div class="grid grid-cols-2 gap-4 sm:gap-6 max-w-3xl mx-auto">
-      <div class="card rounded-xl text-center">
-        <h3 class="text-lg font-semibold mb-3">Guild Join Request</h3>
-        <button class="neon-btn">Join</button>
+
+    <!-- Options Grid (Mobile Optimized) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+      <div class="option-card bg-slate-800 p-4 rounded-lg">
+        <button
+          id="guildJoinBtn"
+          class="w-full"
+        >
+          Guild Join Request
+        </button>
+        <div id="guildJoin" class="mt-4 hidden">
+          <h3 class="text-lg font-bold mb-2">Guild Join Request</h3>
+          <p>Ready to join? Submit your details and prove your worth!</p>
+          <!-- Add form if needed -->
+        </div>
       </div>
-      <div class="card rounded-xl text-center">
-        <h3 class="text-lg font-semibold mb-3">Guild Members</h3>
-        <button class="neon-btn">View</button>
+      <div class="option-card bg-slate-800 p-4 rounded-lg">
+        <button
+          id="guildMembersBtn"
+          class="w-full"
+        >
+          Guild Members
+        </button>
+        <div id="guildMembers" class="mt-4 hidden">
+          <h3 class="text-lg font-bold mb-2">Guild Members</h3>
+          <p>Meet the champions who rule the ranks.</p>
+          <!-- List members -->
+        </div>
       </div>
-      <div class="card rounded-xl text-center">
-        <h3 class="text-lg font-semibold mb-3">Guild Rules</h3>
-        <button class="neon-btn">Check</button>
+      <div class="option-card bg-slate-800 p-4 rounded-lg">
+        <button
+          id="guildRulesBtn"
+          class="w-full"
+        >
+          Guild Rules
+        </button>
+        <div id="guildRules" class="mt-4 hidden">
+          <h3 class="text-lg font-bold mb-2">Guild Rules</h3>
+          <p>Respect the code to maintain glory and discipline.</p>
+          <!-- List rules -->
+        </div>
       </div>
-      <div class="card rounded-xl text-center">
-        <h3 class="text-lg font-semibold mb-3">Join Tournament</h3>
-        <button class="neon-btn">Participate</button>
+      <div class="option-card bg-slate-800 p-4 rounded-lg">
+        <button
+          id="joinTournamentsBtn"
+          class="w-full"
+        >
+          Join Tournaments
+        </button>
+        <div id="joinTournaments" class="mt-4 hidden">
+          <h3 class="text-lg font-bold mb-2">Join Tournaments</h3>
+          <p>Battle in epic tournaments and claim your throne.</p>
+          <!-- Links to tournaments -->
+        </div>
       </div>
     </div>
 
-    <div class="social-buttons flex justify-center gap-4 mt-10">
-      <a href="#" class="neon-btn flex items-center gap-2"><i class="fab fa-discord"></i> Discord</a>
-      <a href="#" class="neon-btn flex items-center gap-2"><i class="fab fa-youtube"></i> YouTube</a>
-      <a href="#" class="neon-btn flex items-center gap-2"><i class="fab fa-instagram"></i> Instagram</a>
+    <!-- Social Media Links (Mobile Friendly) -->
+    <div class="text-center">
+      <h3 class="text-lg font-bold mb-4">Follow Us</h3>
+      <div class="flex justify-center gap-4">
+        <a
+          href="https://instagram.com/teamdominators"
+          target="_blank"
+          class="social-link glow p-2 rounded-full"
+          ><img
+            src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1ddc1084-511d-4061-898d-70f0a9eaee65.png"
+            alt="Instagram icon with a colorful camera and trophy medal symbol representing gaming adventures and community highlights"
+        /></a>
+        <a
+          href="https://youtube.com/teamdominators"
+          target="_blank"
+          class="social-link glow p-2 rounded-full"
+          ><img
+            src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2efb1b0b-e1c1-49fb-ab03-66e2ab914656.png"
+            alt="YouTube icon with a red play button and stream screen symbol showing gaming streams and tutorial videos"
+        /></a>
+        <a
+          href="https://discord.gg/teamdominators"
+          target="_blank"
+          class="social-link glow p-2 rounded-full"
+          ><img
+            src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/163ef350-146c-4ce4-adc9-bc614b9de7c3.png"
+            alt="Discord icon with a speech bubble and gamer headset symbol for community chat and voice calls"
+        /></a>
+      </div>
     </div>
   </section>
 
   <script>
+    // Function to switch to main section
     function enterMain() {
-      document.getElementById('welcome').classList.add('hidden');
-      document.getElementById('dashboard').classList.remove('hidden');
-      window.scrollTo(0,0);
+      document.getElementById("welcome").classList.add("hidden");
+      document.getElementById("main").classList.remove("hidden");
     }
-    function goHome() {
-      document.getElementById('dashboard').classList.add('hidden');
-      document.getElementById('welcome').classList.remove('hidden');
-      window.scrollTo(0,0);
-    }
+
+    // Bind enter event only on hero enter button
+    document
+      .getElementById("heroEnterBtn")
+      .addEventListener("click", enterMain);
+
+    // Logo click returns to home (welcome)
+    document.getElementById("logoLink").addEventListener("click", function (e) {
+      e.preventDefault();
+      document.getElementById("main").classList.add("hidden");
+      document.getElementById("welcome").classList.remove("hidden");
+      window.scrollTo(0, 0);
+    });
+
+    // Option buttons toggle
+    document.querySelectorAll(".option-card button").forEach((btn) => {
+      btn.addEventListener("click", function () {
+        const section = this.nextElementSibling;
+        if (section.style.display === "block") {
+          section.style.display = "none";
+          this.classList.remove("bg-opacity-80");
+        } else {
+          // Hide other sections
+          document.querySelectorAll(".option-card div").forEach((div) => {
+            div.style.display = "none";
+          });
+          // Reset button styles
+          document.querySelectorAll(".option-card button").forEach((b) => {
+            b.classList.remove("bg-opacity-80");
+          });
+          // Show this one
+          section.style.display = "block";
+          this.classList.add("bg-opacity-80");
+        }
+      });
+    });
   </script>
 </body>
 </html>
