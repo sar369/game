@@ -41,18 +41,60 @@
     .glow {
       box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
     }
+    /* Increase button size and remove background colors */
+    .option-card button {
+      font-size: 1.25rem; /* larger font */
+      padding: 1rem 0; /* taller buttons */
+      background-color: transparent !important;
+      color: white !important;
+      border: 2px solid white;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .option-card button:hover {
+      background-color: white !important;
+      color: #1e293b !important;
+    }
+    /* Decrease social media icon size */
+    .social-link img {
+      width: 32px !important;
+      height: 32px !important;
+    }
+    /* Style the logo link */
+    .logo-link {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: white;
+    }
+    .logo-link:hover {
+      opacity: 0.8;
+    }
+    /* Increase the size of the "Enter" button */
+    #heroEnterBtn {
+      font-size: 1.5rem; /* larger font */
+      padding: 1.5rem 0; /* taller buttons */
+    }
+    /* Set the new logo as the background for the second page */
+    #main {
+      background: url('https://depressed-beige-hfvwy3rhjv.edgeone.app/Picsart_25-06-14_19-14-45-948(1).jpg') no-repeat center center;
+      background-size: cover;
+    }
   </style>
 </head>
 <body class="bg-slate-900 text-white min-h-screen flex flex-col">
   <!-- Navigation Bar for Mobile -->
   <nav class="nav-bg p-4 fixed top-0 w-full z-10">
     <div class="flex justify-start items-center">
-      <img
-        src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d2e1b9e0-9737-4b36-a953-15cf4b7a531e.png"
-        alt="Team Dominators logo featuring a glowing shield with swords and a crown, symbolizing victory and leadership in gaming"
-        class="w-8 h-8 mr-2"
-      />
-      <h1 class="text-lg font-bold">Team Dominators</h1>
+      <a href="#" id="logoLink" class="logo-link">
+        <img
+          src="https://depressed-beige-hfvwy3rhjv.edgeone.app/Picsart_25-06-14_19-14-45-948(1).jpg"
+          alt="Team Dominators logo"
+          class="w-8 h-8 mr-2"
+        />
+        <h1 class="text-lg font-bold">Team Dominators</h1>
+      </a>
     </div>
   </nav>
 
@@ -75,7 +117,7 @@
       </p>
       <button
         id="heroEnterBtn"
-        class="w-full py-3 bg-indigo-600 text-white rounded-lg font-bold glow"
+        class="w-full bg-indigo-600 text-white rounded-lg font-bold glow"
       >
         Enter
       </button>
@@ -99,7 +141,7 @@
       <div class="option-card bg-slate-800 p-4 rounded-lg">
         <button
           id="guildJoinBtn"
-          class="w-full py-3 bg-green-600 text-white rounded-lg font-medium"
+          class="w-full"
         >
           Guild Join Request
         </button>
@@ -112,7 +154,7 @@
       <div class="option-card bg-slate-800 p-4 rounded-lg">
         <button
           id="guildMembersBtn"
-          class="w-full py-3 bg-yellow-600 text-white rounded-lg font-medium"
+          class="w-full"
         >
           Guild Members
         </button>
@@ -125,7 +167,7 @@
       <div class="option-card bg-slate-800 p-4 rounded-lg">
         <button
           id="guildRulesBtn"
-          class="w-full py-3 bg-red-600 text-white rounded-lg font-medium"
+          class="w-full"
         >
           Guild Rules
         </button>
@@ -138,7 +180,7 @@
       <div class="option-card bg-slate-800 p-4 rounded-lg">
         <button
           id="joinTournamentsBtn"
-          class="w-full py-3 bg-purple-600 text-white rounded-lg font-medium"
+          class="w-full"
         >
           Join Tournaments
         </button>
@@ -194,6 +236,14 @@
       .getElementById("heroEnterBtn")
       .addEventListener("click", enterMain);
 
+    // Logo click returns to home (welcome)
+    document.getElementById("logoLink").addEventListener("click", function (e) {
+      e.preventDefault();
+      document.getElementById("main").classList.add("hidden");
+      document.getElementById("welcome").classList.remove("hidden");
+      window.scrollTo(0, 0);
+    });
+
     // Option buttons toggle
     document.querySelectorAll(".option-card button").forEach((btn) => {
       btn.addEventListener("click", function () {
@@ -219,5 +269,3 @@
   </script>
 </body>
 </html>
-</content>
-</create_file>
