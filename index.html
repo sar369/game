@@ -34,6 +34,10 @@
       border: 1px solid rgba(99, 102, 241, 0.2);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
     }
     .card:hover {
       transform: translateY(-5px);
@@ -55,6 +59,11 @@
       backdrop-filter: blur(8px);
       z-index: 20;
     }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
     .header a {
       color: white;
       font-size: 1.25rem;
@@ -64,6 +73,11 @@
     }
     .header a:hover {
       opacity: 0.8;
+    }
+    .menu-icon {
+      font-size: 1.5rem;
+      color: white;
+      cursor: pointer;
     }
     .social-buttons a {
       font-size: 0.9rem;
@@ -78,13 +92,20 @@
         font-size: 1rem;
         padding: 0.75rem;
       }
+      /* Force equal button/card size */
+      .card {
+        height: 140px;
+      }
     }
   </style>
 </head>
 <body class="min-h-screen flex flex-col items-center justify-center text-white">
-  <!-- Header with clickable title -->
+  <!-- Header with menu icon and clickable title -->
   <div class="header">
-    <a href="#" onclick="goHome()">Team Dominators</a>
+    <div class="header-left">
+      <i class="fas fa-bars menu-icon"></i>
+      <a href="#" onclick="goHome()">Team Dominators</a>
+    </div>
   </div>
 
   <!-- Welcome Section -->
