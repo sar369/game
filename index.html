@@ -103,6 +103,9 @@
       .grid {
         grid-template-columns: 1fr 1fr;
       }
+      .option-card {
+        margin-bottom: 1rem; /* Add some space between rows */
+      }
     }
   </style>
 </head>
@@ -160,7 +163,7 @@
     </div>
 
     <!-- Options Grid (Mobile Optimized) -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+    <div class="grid grid-cols-2 gap-4 mb-8">
       <div class="option-card bg-slate-800 p-4 rounded-lg">
         <button
           id="guildJoinBtn"
