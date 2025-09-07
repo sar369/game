@@ -81,6 +81,29 @@
       background: url('https://depressed-beige-hfvwy3rhjv.edgeone.app/Picsart_25-06-14_19-14-45-948(1).jpg') no-repeat center center;
       background-size: cover;
     }
+    /* New styles for professional gaming buttons */
+    .option-card button {
+      background: linear-gradient(135deg, #6b73ff, #000dff);
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 1.25rem;
+      padding: 1rem 0;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .option-card button:hover {
+      background: linear-gradient(135deg, #000dff, #6b73ff);
+      transform: translateY(-5px);
+    }
+    .option-card button:active {
+      transform: translateY(0);
+    }
+    /* Ensure buttons are side by side on mobile */
+    @media (max-width: 640px) {
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
   </style>
 </head>
 <body class="bg-slate-900 text-white min-h-screen flex flex-col">
