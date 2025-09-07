@@ -6,6 +6,7 @@
   <title>Team Dominators</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     body {
       font-family: 'Inter', sans-serif;
@@ -64,21 +65,18 @@
     .header a:hover {
       opacity: 0.8;
     }
+    .social-buttons a {
+      font-size: 0.9rem;
+      padding: 0.5rem 0.75rem;
+    }
     /* Mobile optimizations */
     @media (max-width: 640px) {
-      .grid-cols-1 > div {
-        margin-bottom: 1rem;
-      }
       h1, h2 {
         font-size: 1.5rem;
       }
       .neon-btn {
         font-size: 1rem;
         padding: 0.75rem;
-      }
-      .social-buttons a {
-        flex: 1;
-        text-align: center;
       }
     }
   </style>
@@ -103,7 +101,7 @@
       <img src="https://depressed-beige-hfvwy3rhjv.edgeone.app/Picsart_25-06-14_19-14-45-948(1).jpg" alt="Team Dominators Logo" class="logo rounded-full shadow-lg" />
     </div>
     <h2 class="text-2xl sm:text-3xl font-bold text-center glow-text mb-8">Team Dominators Guild Hub</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-3xl mx-auto">
+    <div class="grid grid-cols-2 gap-4 sm:gap-6 max-w-3xl mx-auto">
       <div class="card rounded-xl text-center">
         <h3 class="text-lg font-semibold mb-3">Guild Join Request</h3>
         <button class="neon-btn">Join</button>
@@ -121,10 +119,11 @@
         <button class="neon-btn">Participate</button>
       </div>
     </div>
-    <div class="social-buttons flex flex-col sm:flex-row justify-center gap-4 mt-10">
-      <a href="#" class="neon-btn p-2">Discord</a>
-      <a href="#" class="neon-btn p-2">YouTube</a>
-      <a href="#" class="neon-btn p-2">Instagram</a>
+
+    <div class="social-buttons flex justify-center gap-4 mt-10">
+      <a href="#" class="neon-btn flex items-center gap-2"><i class="fab fa-discord"></i> Discord</a>
+      <a href="#" class="neon-btn flex items-center gap-2"><i class="fab fa-youtube"></i> YouTube</a>
+      <a href="#" class="neon-btn flex items-center gap-2"><i class="fab fa-instagram"></i> Instagram</a>
     </div>
   </section>
 
