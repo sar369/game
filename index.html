@@ -38,6 +38,32 @@
       transform: translateY(-5px);
       box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
     }
+    .logo {
+      max-width: 100px;
+      margin: 0 auto 1.5rem;
+    }
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(8px);
+      z-index: 20;
+    }
+    .header a {
+      color: white;
+      font-size: 1.25rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+    .header a:hover {
+      opacity: 0.8;
+    }
     /* Mobile optimizations */
     @media (max-width: 640px) {
       .grid-cols-1 > div {
@@ -58,15 +84,24 @@
   </style>
 </head>
 <body class="min-h-screen flex flex-col items-center justify-center text-white">
+  <!-- Header with clickable title -->
+  <div class="header">
+    <a href="#" onclick="goHome()">Team Dominators</a>
+  </div>
+
   <!-- Welcome Section -->
-  <section id="welcome" class="w-full max-w-md text-center px-4">
+  <section id="welcome" class="w-full max-w-md text-center px-4 mt-16">
+    <img src="https://depressed-beige-hfvwy3rhjv.edgeone.app/Picsart_25-06-14_19-14-45-948(1).jpg" alt="Team Dominators Logo" class="logo rounded-full shadow-lg" />
     <h1 class="text-3xl sm:text-4xl font-bold glow-text mb-6">Welcome to Team Dominators</h1>
     <p class="opacity-80 mb-8 text-sm sm:text-base">Join the elite gaming guild and dominate the leaderboard</p>
     <button onclick="enterMain()" class="neon-btn px-8 py-3 text-lg">Enter</button>
   </section>
 
   <!-- Main Dashboard Section -->
-  <section id="dashboard" class="hidden w-full px-4 py-10">
+  <section id="dashboard" class="hidden w-full px-4 py-10 mt-16">
+    <div class="text-center mb-6">
+      <img src="https://depressed-beige-hfvwy3rhjv.edgeone.app/Picsart_25-06-14_19-14-45-948(1).jpg" alt="Team Dominators Logo" class="logo rounded-full shadow-lg" />
+    </div>
     <h2 class="text-2xl sm:text-3xl font-bold text-center glow-text mb-8">Team Dominators Guild Hub</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-3xl mx-auto">
       <div class="card rounded-xl text-center">
@@ -97,6 +132,12 @@
     function enterMain() {
       document.getElementById('welcome').classList.add('hidden');
       document.getElementById('dashboard').classList.remove('hidden');
+      window.scrollTo(0,0);
+    }
+    function goHome() {
+      document.getElementById('dashboard').classList.add('hidden');
+      document.getElementById('welcome').classList.remove('hidden');
+      window.scrollTo(0,0);
     }
   </script>
 </body>
